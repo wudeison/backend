@@ -1,0 +1,2 @@
+ALTER TABLE sesion
+ADD COLUMN IF NOT EXISTS fechaCancelacion DATETIME NULL AFTER estado;
