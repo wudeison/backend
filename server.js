@@ -2,7 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./database"); // Importa la conexión a MySQL
 const app = express();
-const PORT = 4000;
+
+// Render asigna el puerto en process.env.PORT
+// Si corres localmente, usa 4000 por defecto
+const PORT = process.env.PORT || 4000;
 
 // Routers agrupados
 const loginRouter = require("./router/login");
@@ -36,8 +39,8 @@ app.use("/api", disponibilidadRouter);
 app.use("/api", profesionalesRouter);
 app.use("/api", reservasRouter);
 
-// Arrancar servidor en la IP de tu WiFi
-app.listen(PORT, "192.168.1.63", () => {
-  console.log(`🚀 Backend activo en http://192.168.1.63:${PORT}`);
-  console.log("📌 Conectado a MySQL (BD: boost)");
+// Arrancar servidor (sin IP fija)
+app.listen(PORT, () => {
+  console.log(`🚀 Backend activo en puerto ${PORT}`);
+  console.log("📌 Conectado a MySQL (Railway)");
 });
