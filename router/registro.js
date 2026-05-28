@@ -34,8 +34,8 @@ router.post("/registro", async (req, res) => {
     const passwordHash =
       await argon2.hash(contrasena);
       // 🔐 ENCRIPTAR DOCUMENTO
-const documentoEnc = encrypt(documentoIdentidad);
-
+const correoEncriptado = encrypt(correo);
+console.log("Correo encriptado:", correoEncriptado);
     const query = `
       INSERT INTO usuario (
         idUsuario,
