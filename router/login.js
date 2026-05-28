@@ -1,9 +1,10 @@
+const argon2 = require("argon2");
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
 
 router.post("/login", async (req, res) => {
-  const { idUsuario, contrasena } = req.body;
+  const passwordHash = await argon2.hash(req.body.contrasena);
 
   if (!idUsuario || !contrasena) {
     return res.status(400).json({ mensaje: "Faltan datos" });
