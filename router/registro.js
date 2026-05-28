@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
-const { encrypt } = require("../utils/crypto");
+const { encrypt } = require("../src/crypto/crypto");
 
 // ✅ IMPORTAR ARGON2
 const argon2 = require("argon2");
