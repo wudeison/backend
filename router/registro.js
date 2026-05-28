@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../database");
+const { encrypt } = require("../utils/crypto");
 
 // ✅ IMPORTAR ARGON2
 const argon2 = require("argon2");
@@ -29,9 +30,11 @@ router.post("/registro", async (req, res) => {
 
   try {
 
-    // ✅ ENCRIPTAR CONTRASEÑA
+    
     const passwordHash =
       await argon2.hash(contrasena);
+      // 🔐 ENCRIPTAR DOCUMENTO
+const documentoEnc = encrypt(documentoIdentidad);
 
     const query = `
       INSERT INTO usuario (

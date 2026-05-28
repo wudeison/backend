@@ -1,4 +1,5 @@
 {
+  
   "name": "backend",
   "version": "1.0.0",
   "description": "Sistema backend con Express y MySQL",
@@ -7,7 +8,7 @@
     "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "debug": "node --inspect server.js",
-    "test": "echo \"No hay pruebas definidas aún\" && exit 1"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "Wudeison",
@@ -21,6 +22,7 @@
     "mysql2": "^3.6.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11"
+    "nodemon": "^3.1.11",
+    "vitest": "^4.1.7"
   }
 }
